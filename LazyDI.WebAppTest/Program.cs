@@ -1,6 +1,5 @@
 
 using LazyDI.Core;
-using System.Reflection;
 
 namespace LazyDI.WebAppTest;
 
@@ -14,7 +13,17 @@ public class Program
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
 
-        builder.Services.AddLazyDI();
+        //builder.Services.AddLazyDI(
+        //    Assembly.Load("LazyDI.Test.Infra"),
+        //    Assembly.Load("LazyDI.Test.Services"),
+        //    Assembly.Load("LazyDI.WebAppTest")
+        //);
+
+        builder.Services.AddLazyDI(
+            "LazyDI.Test.Infra",
+            "LazyDI.Test.Services",
+            "LazyDI.WebAppTest"
+        );
 
         var app = builder.Build();
 
