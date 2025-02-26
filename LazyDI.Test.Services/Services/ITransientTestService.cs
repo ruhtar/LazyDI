@@ -4,5 +4,5 @@ namespace LazyDI.Test.Services.Services;
 
 public interface ITestTransientService
 {
-    Guid GetNumber();
+    (Guid, Guid) GetNumber();
 }

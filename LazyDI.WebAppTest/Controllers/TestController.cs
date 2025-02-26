@@ -24,6 +24,8 @@ public class TestController : ControllerBase
     [HttpGet("transient")]
     public IActionResult TestTransient()
     {
-        return Ok(testTransientService.GetNumber());
+        var um = testTransientService.GetNumber().Item1;
+        var dois = testTransientService.GetNumber().Item2;
+        return Ok(new { um, dois });
     }
 }

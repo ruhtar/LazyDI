@@ -1,8 +1,9 @@
 ﻿using LazyDI.Core;
+using LazyDI.Test.Services.Repo;
 
-namespace LazyDI.Test.Services.Services;
+namespace LazyDI.Test.Infra;
 
-public class SingletonTestService : ITestSingletonService, ISingleton
+public class TransientRepository : ITransientRepo, ITransient
 {
     private readonly Guid _random = Guid.NewGuid();
 

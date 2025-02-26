@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -14,7 +14,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\LazyDI.Test.Services\LazyDI.Test.Services.csproj" />
+		  <ProjectReference Include="..\LazyDI.Test.Infra\LazyDI.Test.Infra.csproj">
+			  <Private>true</Private>
+		  </ProjectReference>
+
+	  <ProjectReference Include="..\LazyDI.Test.Services\LazyDI.Test.Services.csproj" />
   </ItemGroup>
 
 </Project>

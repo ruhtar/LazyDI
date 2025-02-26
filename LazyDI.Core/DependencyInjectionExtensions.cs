@@ -5,12 +5,15 @@ namespace LazyDI.Core;
 
 public static class DependencyInjectionExtensions
 {
-    public static IServiceCollection AddLazyDI(this IServiceCollection services)
+    public static IServiceCollection AddLazyDI(this IServiceCollection services, params Assembly[] assemblies)
     {
-        var assemblies = GetApplicationAssemblies();
+        var allAssemblies = AppDomain.CurrentDomain.GetAssemblies()
+            .Concat(assemblies)
+            .Distinct() 
+            .ToArray();
 
-        foreach (var assembly in assemblies) 
-        { 
+        foreach (var assembly in allAssemblies)
+        {
             var types = assembly.GetTypes();
 
             foreach (var type in types)
@@ -38,6 +41,15 @@ public static class DependencyInjectionExtensions
         return services;
     }
 
+    public static IServiceCollection AddLazyDI(this IServiceCollection services, params string[] assemblyNames)
+    {
+        var assemblies = assemblyNames
+            .Select(Assembly.Load)
+            .ToArray();
+
+        return AddLazyDI(services, assemblies);
+    }
+
     private static void RegisterServices(IServiceCollection services, Type implementationType, Type[] interfaces, ServiceLifetime lifetime)
     {
         foreach (var @interface in interfaces)
@@ -58,15 +70,5 @@ public static class DependencyInjectionExtensions
                     break;
             }
         }
-    }
-    private static Assembly[] GetApplicationAssemblies()
-    {
-        var entryAssembly = Assembly.GetEntryAssembly();
-        var referencedAssemblies = entryAssembly.GetReferencedAssemblies();
-
-        foreach (var assemblyName in referencedAssemblies)
-            Assembly.Load(assemblyName);
-
-        return AppDomain.CurrentDomain.GetAssemblies();
     }
 }

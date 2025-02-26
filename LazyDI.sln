@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LazyDI.WebAppTest", "LazyDI
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LazyDI.Test.Services", "LazyDI.Test.Services\LazyDI.Test.Services.csproj", "{FCDBDEF1-CC1C-4E3B-B4FC-DDA385B41A7D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LazyDI.Test.Infra", "LazyDI.Test.Infra\LazyDI.Test.Infra.csproj", "{595D6E2D-AA6E-4DC7-8E92-5E2D3B527A00}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{FCDBDEF1-CC1C-4E3B-B4FC-DDA385B41A7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FCDBDEF1-CC1C-4E3B-B4FC-DDA385B41A7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FCDBDEF1-CC1C-4E3B-B4FC-DDA385B41A7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{595D6E2D-AA6E-4DC7-8E92-5E2D3B527A00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{595D6E2D-AA6E-4DC7-8E92-5E2D3B527A00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{595D6E2D-AA6E-4DC7-8E92-5E2D3B527A00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{595D6E2D-AA6E-4DC7-8E92-5E2D3B527A00}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
