@@ -1,11 +1,11 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
-namespace LazyDI;
+namespace LazyDI.Core;
 
 public static class DependencyInjectionExtensions
 {
-    public static IServiceCollection AddSmartDI(this IServiceCollection services, Assembly assembly)
+    public static IServiceCollection AddLazyDI(this IServiceCollection services, Assembly assembly)
     {
         var types = assembly.GetTypes();
 
