@@ -5,7 +5,9 @@ VisualStudioVersion = 17.11.35431.28
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LazyDI.Core", "LazyDI.Core\LazyDI.Core.csproj", "{B8EA4219-21AA-4811-AD0E-32EFEC57601B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LazyDI.WebAppTest", "LazyDI.WebAppTest\LazyDI.WebAppTest.csproj", "{89663280-EE99-49A9-906C-F2E8015849E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LazyDI.WebAppTest", "LazyDI.WebAppTest\LazyDI.WebAppTest.csproj", "{89663280-EE99-49A9-906C-F2E8015849E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LazyDI.Test.Services", "LazyDI.Test.Services\LazyDI.Test.Services.csproj", "{FCDBDEF1-CC1C-4E3B-B4FC-DDA385B41A7D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{89663280-EE99-49A9-906C-F2E8015849E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89663280-EE99-49A9-906C-F2E8015849E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89663280-EE99-49A9-906C-F2E8015849E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCDBDEF1-CC1C-4E3B-B4FC-DDA385B41A7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCDBDEF1-CC1C-4E3B-B4FC-DDA385B41A7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCDBDEF1-CC1C-4E3B-B4FC-DDA385B41A7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCDBDEF1-CC1C-4E3B-B4FC-DDA385B41A7D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

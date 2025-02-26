@@ -1,4 +1,4 @@
-using LazyDI.WebAppTest.Services;
+using LazyDI.Test.Services.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LazyDI.WebAppTest.Controllers;

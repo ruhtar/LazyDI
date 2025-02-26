@@ -1,5 +1,6 @@
-﻿
-namespace LazyDI.WebAppTest.Services;
+﻿using LazyDI.Core;
+
+namespace LazyDI.Test.Services.Services;
 
 public interface ITestTransientService
 {

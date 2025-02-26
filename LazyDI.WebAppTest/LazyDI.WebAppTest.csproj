@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\LazyDI.Core\LazyDI.Core.csproj" />
+    <ProjectReference Include="..\LazyDI.Test.Services\LazyDI.Test.Services.csproj" />
   </ItemGroup>
 
 </Project>

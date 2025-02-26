@@ -5,33 +5,39 @@ namespace LazyDI.Core;
 
 public static class DependencyInjectionExtensions
 {
-    public static IServiceCollection AddLazyDI(this IServiceCollection services, Assembly assembly)
+    public static IServiceCollection AddLazyDI(this IServiceCollection services)
     {
-        var types = assembly.GetTypes();
+        var assemblies = GetApplicationAssemblies();
 
-        foreach (var type in types)
-        {
-            if (type.IsClass && !type.IsAbstract)
+        foreach (var assembly in assemblies) 
+        { 
+            var types = assembly.GetTypes();
+
+            foreach (var type in types)
             {
-                var interfaces = type.GetInterfaces();
+                if (type.IsClass && !type.IsAbstract)
+                {
+                    var interfaces = type.GetInterfaces();
 
-                if (typeof(ITransient).IsAssignableFrom(type))
-                {
-                    RegisterServices(services, type, interfaces, ServiceLifetime.Transient);
-                }
-                else if (typeof(IScoped).IsAssignableFrom(type))
-                {
-                    RegisterServices(services, type, interfaces, ServiceLifetime.Scoped);
-                }
-                else if (typeof(ISingleton).IsAssignableFrom(type))
-                {
-                    RegisterServices(services, type, interfaces, ServiceLifetime.Singleton);
+                    if (typeof(ITransient).IsAssignableFrom(type))
+                    {
+                        RegisterServices(services, type, interfaces, ServiceLifetime.Transient);
+                    }
+                    else if (typeof(IScoped).IsAssignableFrom(type))
+                    {
+                        RegisterServices(services, type, interfaces, ServiceLifetime.Scoped);
+                    }
+                    else if (typeof(ISingleton).IsAssignableFrom(type))
+                    {
+                        RegisterServices(services, type, interfaces, ServiceLifetime.Singleton);
+                    }
                 }
             }
         }
 
         return services;
     }
+
     private static void RegisterServices(IServiceCollection services, Type implementationType, Type[] interfaces, ServiceLifetime lifetime)
     {
         foreach (var @interface in interfaces)
@@ -52,5 +58,15 @@ public static class DependencyInjectionExtensions
                     break;
             }
         }
+    }
+    private static Assembly[] GetApplicationAssemblies()
+    {
+        var entryAssembly = Assembly.GetEntryAssembly();
+        var referencedAssemblies = entryAssembly.GetReferencedAssemblies();
+
+        foreach (var assemblyName in referencedAssemblies)
+            Assembly.Load(assemblyName);
+
+        return AppDomain.CurrentDomain.GetAssemblies();
     }
 }
